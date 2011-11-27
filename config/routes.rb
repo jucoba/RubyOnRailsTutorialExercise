@@ -1,4 +1,12 @@
 Miiglesiaenlinea::Application.routes.draw do
+  #get "pages/home"
+
+  #get "pages/contact"
+
+  #get "pages/info"
+
+  root :to => 'pages#home'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

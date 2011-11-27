@@ -5,3 +5,49 @@
  *= require_self
  *= require_tree . 
 */
+{
+  margin: o;
+  padding: 0;
+
+}
+
+
+
+body {  
+  margin: 0 auto;
+  font: 14px/22px "Lucida Grande", Arial, sans-serif;  
+  background: #8FF48F; 
+}  
+
+#maincontainer
+{
+    margin: 0 auto;  
+    width: 900px;  
+    height: 500px;
+    background: yellow;
+    padding: 10px;
+}
+
+#center
+{
+  padding-top: 90px;
+}
+
+nav {
+  float: right;
+  padding: 0 0.7em;
+  white-space: nowrap;
+  background: yellow;
+}
+
+nav ul li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 0.2em 0;
+}
+
+nav ul li a {
+  padding: 0 5px;
+  font-weight: bold;
+}
+
