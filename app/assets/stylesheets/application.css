@@ -37,7 +37,7 @@ nav {
   float: right;
   padding: 0 0.7em;
   white-space: nowrap;
-  background: yellow;
+  font-color: black; 
 }
 
 nav ul li {

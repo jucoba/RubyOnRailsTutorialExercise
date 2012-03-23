@@ -1,0 +1,98 @@
+// Place all the styles related to the Pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#maincontent
+{
+  display: table;
+}
+
+#introContainer
+{
+  display: table-cell;
+  padding-left: 50px;
+}
+
+#registerContainer
+{
+  display: table-cell;
+  padding-left: 20px;
+}
+
+
+#content
+{
+  text-align: center;
+  
+  
+background: #c9c190; /* Old browsers */
+background: -moz-radial-gradient(center, ellipse cover,  #A8C3A8 0%, #64F464 0%, #0DD80C 100%, #A8C3A8 100%); /* FF3.6+ */
+background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#A8C3A8), color-stop(0%,#64F464), color-stop(100%,#0DD80C), color-stop(100%,#A8C3A8)); /* Chrome,Safari4+ */
+background: -webkit-radial-gradient(center, ellipse cover,  #A8C3A8 0%, #64F464 0%, #0DD80C 100%, #A8C3A8 100%); /* Chrome10+,Safari5.1+ */
+background: -o-radial-gradient(center, ellipse cover,  #A8C3A8 0%, #64F464 0%, #0DD80C 100%, #A8C3A8 100%); /* Opera 12+ */
+background: -ms-radial-gradient(center, ellipse cover,  #A8C3A8 0%, #64F464 0%, #0DD80C 100%, #A8C3A8 100%); /* IE10+ */
+background: radial-gradient(center, ellipse cover,  #A8C3A8 0%, #64F464 0%, #0DD80C 100%, #A8C3A8 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0DD80C', endColorstr='#0DD80C',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  
+
+  padding: 25px;
+  height: 280px;
+  display: table;
+  box-shadow: 10px 10px 5px #004B00;
+  border-radius: 22px;
+}
+
+#register
+{
+  border: 2px solid white;
+  padding: 25px;
+  height: 280px;
+  vertical-align: middle;
+  display: table;
+}
+
+hgroup
+{
+  display:block;
+  line-height: 68px;
+  font-family: 'Droid Sans';
+  color: #3F3F3F;
+  text-shadow: rgba(0, 0, 0, 0.3) 0 2px 0px;
+}
+#justifytest
+{
+  text-align: justify;
+}
+
+#formulario
+{
+  vertical-align: center;
+}
+
+#filaTabla
+{
+  display: table-row;
+  padding-right: 30px;
+}
+
+#columnaTabla
+{
+  display: table-cell;
+  padding-right: 30px;
+  padding-left: 10px;
+}
+
+
+a.regButton {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  text-align: center;
+  width: 90px;
+  color: #fff;
+  background: #006400;
+  font-size: 150%;
+  font-weight: bold;
+  padding: 10px;
+  text-decoration: none;
+}
+
