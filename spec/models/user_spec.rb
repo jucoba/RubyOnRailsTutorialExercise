@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe User do
   before(:each) do
-    @attr = { :name => "Test user", :email => "example@miiglesiaenlinea.com" }
+    @attr = { :name => "Test user", :email => "example@miiglesiaenlinea.com"  }
   end
 
   it "Should create a new user given vaid attributes" do
@@ -46,4 +46,6 @@ describe User do
    duplicate_user = User.new(@attr)
    duplicate_user.should_not be_valid
  end
+
+ 
 end
