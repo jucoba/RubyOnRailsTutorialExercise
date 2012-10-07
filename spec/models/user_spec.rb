@@ -14,14 +14,57 @@ require 'spec_helper'
 
 describe User do
   before(:each) do
-    @attr = { :name => "Test user 1", :email => "example@miiglesiaenlinea.com", :churchname => "Iglesia en Linea"}
+    @attr = { name: "Test user 1", email: "example@miiglesiaenlinea.com", churchname: "Iglesia en Linea", password:"mipass", 
+      :password_confirmation => "mipass"}
+    @user = User.new(@attr)
   end
 
-  it "Should create a new user given vaid attributes" do
-    User.create!(@attr)    
+  subject { @user }
+
+  it {should respond_to(:name)}
+  it {should respond_to(:email)}
+  it {should respond_to(:churchname)}
+  it {should respond_to(:password_digest)}
+  it {should respond_to(:password)}
+  it {should respond_to(:password_confirmation)}
+  it {should respond_to(:authenticate)}
+  
+  it {should be_valid}
+  
+  describe "return value of authenticate method" do
+    before { @user.save }
+    let(:found_user) { User.find_by_email(@user.email) }
+
+    describe "with valid password" do
+      it { should == found_user.authenticate(@user.password) }
+    end
+
+    describe "with invalid password" do
+      let(:user_for_invalid_password) { found_user.authenticate("invalid") }
+
+      #Estas 2 lineas hacen lo mismo, se dejaron las 2 soloamente por ejemplo
+      it { should_not == user_for_invalid_password }
+      specify { user_for_invalid_password.should be_false }
+    end
+end
+
+  describe "When password is not present" do
+    before {@user.password = @user.password_confirmation = ""}
+    it {should_not be_valid}
+  end
+
+  describe "when password doesn't match confirmation" do
+    before { @user.password_confirmation = "mismatch" }
+    it { should_not be_valid }
+  end
+
+  describe "when password confirmation is nil" do
+    before { @user.password_confirmation = nil }
+    it { should_not be_valid }
   end
 
   it "Should require a name" do
+  User.create(@attr)    
     no_name_user = User.new( @attr.merge(:name => "") )
     no_name_user.should_not be_valid
   end
@@ -35,6 +78,14 @@ describe User do
     no_email_user = User.new( @attr.merge(:email => "") )
     no_email_user.should_not be_valid
   end
+
+  it "Should reject user with duplicate email address" do    
+    User.create!(@attr)
+    duplicate_user = User.new(@attr)
+    duplicate_user.should_not be_valid
+  end
+
+  
 
   it "Sould reject users with long names" do
     long_name = "a" * 61
@@ -60,9 +111,7 @@ describe User do
     end  
   end 
 
- it "Should reject user with duplicate email address" do
-  User.create!(@attr)
-  duplicate_user = User.new(@attr)
-  duplicate_user.should_not be_valid
- end
+ 
+
+
 end
