@@ -11,8 +11,9 @@ describe PagesController do
     end
 
     it "should have the right title" do
-     get 'home'
-     response.should have_selector("title", :content => "Mi Iglesia en Linea")
+     app_title = I18n.t ('app_title')
+     visit 'home'
+     page.should have_selector("title", text: app_title)
     end
   end
 

@@ -1,6 +1,6 @@
 Miiglesiaenlinea::Application.routes.draw do
   
-  get "users/new"
+  resources :users
   
   get "pages/home"
 
@@ -12,6 +12,7 @@ Miiglesiaenlinea::Application.routes.draw do
 
   match '/info', :to => 'pages#info'
   match '/contact', :to => 'pages#contact'
+  match '/signup', to: 'users#new'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

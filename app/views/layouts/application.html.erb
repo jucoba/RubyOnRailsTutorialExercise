@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Mi Iglesia en Linea</title>
+  <title><%= t(:app_title) %> | <%= yield (:title)%></title>
   <!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
@@ -13,18 +13,21 @@
   <header class="navbar navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
-        <%= link_to "Mi Iglesia en Linea", root_path, id: "logo" %>
+        <%= link_to t(:app_title), root_path, id: "logo" %>
     		<nav>
     			<ul>
-    			  <li><%= link_to "Inicio", root_path%></li>
-    			  <li><%= link_to "Acerca de", info_path %></li>
-    			  <li><%= link_to "Contactenos", contact_path%></li>
+    			  <li><%= link_to t(:home), root_path%></li>
+    			  <li><%= link_to t(:about), info_path %></li>
+    			  <li><%= link_to t(:contact_us), contact_path%></li>
     			</ul>  
     		</nav>
       </div>
     </div>
   </header>
-  <div class="container">		
+  <div class="container">
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
 		<%= yield %>		
 	</div>
   <%= debug(params) if Rails.env.development? %>
