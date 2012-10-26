@@ -15,21 +15,7 @@ es:
       create_account: "Crear cuenta"
 
   activerecord:
-    errors:       
-      models:
-        user:      
-          attributes:            
-            name:              
-                blank: "Debe ingresar el %{attribute}" 
-            email:
-              blank: "Debe ingresar el %{attribute}"
-              record_invalid: "Invalido"
-            churchname:
-              blank: "Debe ingresar el nombre de la %{attribute}"
-            password_digest:
-              blank: "Debe ingresar la %{attribute}"
-            password_confirmation:
-              blank: "Debe ingresar la %{attribute}"
+    
     attributes:
       user:
         name: "Nombre"
