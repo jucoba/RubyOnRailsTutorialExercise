@@ -13,7 +13,7 @@ describe "User pages" do
 	  it { should have_selector('title', text: user.name) }
 	end
 
-	describe "signup" do
+	describe "signin" do
 
 		before { visit signup_path }
 

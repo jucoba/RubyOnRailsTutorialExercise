@@ -13,6 +13,12 @@ es:
     signup:
       error_message_title: "Se presentaron los siguientes errores"
       create_account: "Crear cuenta"
+    signin:
+      title: "Iniciar sesion"
+      header: "Iniciar sesión"
+      submit_button: "Acceder"
+      new_user: "Nuevo usuario"
+      invalid_username_password: "Usuario o clave no válidos"
 
   activerecord:
     
@@ -24,6 +30,7 @@ es:
         email: "Correo electrónico"
         churchname: "Iglesia"
         password: "Clave"
+
 
   #Otros
   date:

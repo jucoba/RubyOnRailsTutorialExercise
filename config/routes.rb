@@ -1,6 +1,7 @@
 Miiglesiaenlinea::Application.routes.draw do
   
   resources :users
+  resources :sessions, only: [:new, :create, :desrtoy]
   
   get "pages/home"
 
@@ -13,6 +14,8 @@ Miiglesiaenlinea::Application.routes.draw do
   match '/info', :to => 'pages#info'
   match '/contact', :to => 'pages#contact'
   match '/signup', to: 'users#new'
+  match '/signin', to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy', viea: :delete
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
