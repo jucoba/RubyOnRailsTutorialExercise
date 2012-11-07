@@ -35,16 +35,22 @@ describe "AuthenticationPages" do
     	describe "with valid information" do
     		let (:user) {FactoryGirl.create(:user)}
     		before do
-    			fill_in "session_email", with: user.email
+    			fill_in email_field, with: user.email
 				fill_in password_field,	with: user.password
 				click_button submit_button
     		end
-    		profile_link = I18n.t ('pages.user.profile_link')
-    		signout_link = I18n.t ('pages.signout')
-    		signin_link = I18n.t ('pages.signin')
+    		profile_link = I18n.t ('profile')
+    		signout_link = I18n.t (:signout)
+    		signin_link = I18n.t (:signin)
+    		
     		it { should have_selector('title', text: user.name) }
-    		it { should have_link(profile_link, href: user_path(user))}
+    		it { should have_link(profile_link, href: user_path(user))}    		
     		it { should_not have_link(signin_link, href: signin_path)}
+
+    		describe "followed by signout" do
+    			before { click_link signout_link}
+    			it { should have_link(signin_link)}
+    		end
 
     	end
 

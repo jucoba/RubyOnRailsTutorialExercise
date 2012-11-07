@@ -24,9 +24,16 @@ class User < ActiveRecord::Base
 	validates :password_confirmation, :presence => true
        
 
-	
+	has_secure_password
 	
 
 	before_save {|user| user.email = email.downcase }
-	has_secure_password
+	before_save :create_remeber_token
+
+	private
+
+		def create_remeber_token
+			self.remember_token = SecureRandom.urlsafe_base64
+		end
+	
 end

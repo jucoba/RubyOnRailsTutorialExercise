@@ -2,16 +2,16 @@
 <h1><%= t('pages.signin.header') %></h1>
 <div class="row">
 	<div class="span6 offset3">
-		<%= form_for(:session, url: sessions_path) do |f| %>
+		<%= form_tag(sessions_path) do %>
+  			<%= label_tag(:email, t('activerecord.attributes.user.email') ) %>
+  			<%= text_field_tag(:email) %>
 
-			<%= f.label t("activerecord.attributes.user.email") %>
-			<%= f.text_field :email %>
+  			<%= label_tag(:password, t("activerecord.attributes.user.password") ) %>
+  			<%= password_field_tag(:password) %>
 
-			<%= f.label t("activerecord.attributes.user.password") %>
-			<%= f.text_field :password %>
 
-			<%= f.submit t('pages.signin.submit_button'), class: "btn btn-large btn-primary" %>
-    	<% end %>
+  			<%= submit_tag(t('pages.signin.submit_button'), class: "btn btn-large btn-primary" ) %>
+		<% end %>
     	<p><%= t('pages.signin.new_user')%> <%= link_to t(:sign_up), signup_path %></p>
 
 	</div>

@@ -13,7 +13,7 @@ describe "User pages" do
 	  it { should have_selector('title', text: user.name) }
 	end
 
-	describe "signin" do
+	describe "signup" do
 
 		before { visit signup_path }
 
@@ -48,6 +48,7 @@ describe "User pages" do
 			churchname_field = I18n.t ('activerecord.attributes.user.churchname')
 			password_field = I18n.t ('activerecord.attributes.user.password')
 			password_confirmation_field = I18n.t ('activerecord.attributes.user.password_confirmation')
+			signout_link = I18n.t (:signout)
 
 			before do
 				fill_in nombre_field, with: testUser.name
@@ -67,6 +68,7 @@ describe "User pages" do
 				let(:newUser) { User.find_by_email (testUser.email) }
 				it { should have_selector('title', text: newUser.name ) }
 				it { should have_selector('div.alert-success', text: welcome_text) }
+				it { should have_link(signout_link) }
 
 			end
 						

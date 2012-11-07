@@ -1,8 +1,17 @@
 require 'spec_helper'
 
 describe "LayoutLinks" do
-  it "should have a Home page at '/' " do
-    visit '/'    
-    page.should have_selector("title",:content => "Mi Iglesia en Linea");
+  
+
+  describe "Visit home page" do
+
+  	subject { page }
+
+  	describe "Without signin" do
+  		before {visit '/'}
+  		signin_link = I18n.t (:signin)
+  		it { should have_selector("title",:content => "Mi Iglesia en Linea") }
+  		it { should have_link(signin_link, href: signin_path) }
+  	end  	
   end
 end

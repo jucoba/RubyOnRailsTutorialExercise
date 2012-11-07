@@ -6,8 +6,13 @@ es:
   home: "Inicio"
   about: "Acerca de"
   contact_us: "Contáctenos"
-  
+  signin: "Inicia Sesión"
+  signout: "Cerrar Sesión"
   sign_up: "Crea tu cuenta"
+  users: "Usuarios"
+  account: "Cuenta"
+  profile: "Perfil"
+  settings: "Preferencias"
 
   pages:
     signup:
@@ -18,7 +23,8 @@ es:
       header: "Iniciar sesión"
       submit_button: "Acceder"
       new_user: "Nuevo usuario"
-      invalid_username_password: "Usuario o clave no válidos"
+      invalid_username_password: "Usuario o clave no válidos"    
+      
 
   activerecord:
     

@@ -3,13 +3,16 @@ class SessionsController < ApplicationController
 	end
 
 	def destroy
+		sign_out
+		redirect_to root_path
 	end
 
-	def create
-		puts params[:session][:email]
-		user = User.find_by_email(params[:session][:email].downcase)
-		if (user && user.authenticate(params[:session][:password]))
+	def create		
+		user = User.find_by_email(params[:email].downcase)
+		if (user && user.authenticate(params[:password]))
 			#Correct
+			sign_in user
+			redirect_to user
 		else
 			#Invalid username / password
 			#Se usa flash.now en lugar de flash porque el flash se quita luego del segunod request, pero el render no cuenta como request
